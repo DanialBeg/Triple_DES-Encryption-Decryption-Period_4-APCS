@@ -11,4 +11,4 @@ All code was made in Eclipse with Java.
 Thanks for visiting!
 
 
-Tested by Darth JarJar Binks and Kylo Ren
+Tested by General Hux and Kylo Ren
