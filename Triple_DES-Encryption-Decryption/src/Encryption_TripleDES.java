@@ -1,9 +1,0 @@
-
-public class Encryption_TripleDES {
-
-	public static void main(String[] args) {
-		System.out.println("Encryption");
-
-	}
-
-}

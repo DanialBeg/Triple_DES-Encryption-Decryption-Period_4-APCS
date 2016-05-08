@@ -1,0 +1,10 @@
+import org.apache.commons.codec.binary.Base64;
+
+public class Encryption_TripleDES {
+
+	public static void main(String[] args) {
+		System.out.println("Encryption");
+
+	}
+
+}

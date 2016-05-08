@@ -75,3 +75,40 @@ org.apache.lucene.index.IndexNotFoundException: no segments* file found in org.a
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1450) [org.eclipse.equinox.launcher_1.3.0.v20130327-1440.jar:na]
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1426) [org.eclipse.equinox.launcher_1.3.0.v20130327-1440.jar:na]
 2016-05-05 20:35:43,970 [pool-8-thread-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2016-05-07 11:02:29,524 [main] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2016-05-07 11:49:28,573 [Recommenders-Dependency-Info-Service-1] ERROR o.e.r.u.a.ArchiveDetailsExtractor - Error while extracting name and version from file: C:\Users\BegFamily\Documents\BuildTools.jar
+java.lang.IllegalArgumentException: Unexpected delimiter '-'; Expected delimiters '.'
+	at org.eclipse.recommenders.utils.Throws.throwIllegalArgumentException(Throws.java:25) ~[org.eclipse.recommenders.utils_1.0.5.v20130822-0858-b90.jar:na]
+	at org.eclipse.recommenders.utils.parser.MavenVersionParser.consumeDelimiter(MavenVersionParser.java:78) ~[org.eclipse.recommenders.utils_1.0.5.v20130822-0858-b90.jar:na]
+	at org.eclipse.recommenders.utils.parser.MavenVersionParser.parse(MavenVersionParser.java:45) ~[org.eclipse.recommenders.utils_1.0.5.v20130822-0858-b90.jar:na]
+	at org.eclipse.recommenders.utils.archive.MavenPomJarIdExtractor.parseVersion(MavenPomJarIdExtractor.java:59) ~[org.eclipse.recommenders.utils_1.0.5.v20130822-0858-b90.jar:na]
+	at org.eclipse.recommenders.utils.archive.MavenPomJarIdExtractor.extract(MavenPomJarIdExtractor.java:37) ~[org.eclipse.recommenders.utils_1.0.5.v20130822-0858-b90.jar:na]
+	at org.eclipse.recommenders.utils.archive.MavenPomJarIdExtractor.extract(MavenPomJarIdExtractor.java:29) ~[org.eclipse.recommenders.utils_1.0.5.v20130822-0858-b90.jar:na]
+	at org.eclipse.recommenders.utils.archive.ArchiveDetailsExtractor.extractJarIds(ArchiveDetailsExtractor.java:64) [org.eclipse.recommenders.utils_1.0.5.v20130822-0858-b90.jar:na]
+	at org.eclipse.recommenders.utils.archive.ArchiveDetailsExtractor.extractName(ArchiveDetailsExtractor.java:105) [org.eclipse.recommenders.utils_1.0.5.v20130822-0858-b90.jar:na]
+	at org.eclipse.recommenders.internal.rcp.providers.ClasspathEntryInfoProvider$3.run(ClasspathEntryInfoProvider.java:245) [org.eclipse.recommenders.rcp_1.0.5.v20130822-0858-b90.jar:na]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_79]
+	at java.lang.Thread.run(Unknown Source) [na:1.7.0_79]
+2016-05-07 11:54:51,256 [Recommenders-Dependency-Info-Service-2] ERROR o.e.r.u.a.ArchiveDetailsExtractor - Error while extracting name and version from file: C:\Users\BegFamily\Documents\Premade 1.8.7 Server\1.9 Server\craftbukkit-1.9.jar
+java.lang.IllegalArgumentException: Unexpected delimiter '-'; Expected delimiters '.'
+	at org.eclipse.recommenders.utils.Throws.throwIllegalArgumentException(Throws.java:25) ~[org.eclipse.recommenders.utils_1.0.5.v20130822-0858-b90.jar:na]
+	at org.eclipse.recommenders.utils.parser.MavenVersionParser.consumeDelimiter(MavenVersionParser.java:78) ~[org.eclipse.recommenders.utils_1.0.5.v20130822-0858-b90.jar:na]
+	at org.eclipse.recommenders.utils.parser.MavenVersionParser.parse(MavenVersionParser.java:45) ~[org.eclipse.recommenders.utils_1.0.5.v20130822-0858-b90.jar:na]
+	at org.eclipse.recommenders.utils.archive.MavenPomJarIdExtractor.parseVersion(MavenPomJarIdExtractor.java:59) ~[org.eclipse.recommenders.utils_1.0.5.v20130822-0858-b90.jar:na]
+	at org.eclipse.recommenders.utils.archive.MavenPomJarIdExtractor.extract(MavenPomJarIdExtractor.java:37) ~[org.eclipse.recommenders.utils_1.0.5.v20130822-0858-b90.jar:na]
+	at org.eclipse.recommenders.utils.archive.MavenPomJarIdExtractor.extract(MavenPomJarIdExtractor.java:29) ~[org.eclipse.recommenders.utils_1.0.5.v20130822-0858-b90.jar:na]
+	at org.eclipse.recommenders.utils.archive.ArchiveDetailsExtractor.extractJarIds(ArchiveDetailsExtractor.java:64) [org.eclipse.recommenders.utils_1.0.5.v20130822-0858-b90.jar:na]
+	at org.eclipse.recommenders.utils.archive.ArchiveDetailsExtractor.extractName(ArchiveDetailsExtractor.java:105) [org.eclipse.recommenders.utils_1.0.5.v20130822-0858-b90.jar:na]
+	at org.eclipse.recommenders.internal.rcp.providers.ClasspathEntryInfoProvider$3.run(ClasspathEntryInfoProvider.java:245) [org.eclipse.recommenders.rcp_1.0.5.v20130822-0858-b90.jar:na]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_79]
+	at java.lang.Thread.run(Unknown Source) [na:1.7.0_79]
+2016-05-07 11:57:31,714 [pool-6-thread-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2016-05-07 11:57:35,382 [pool-8-thread-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2016-05-07 11:57:38,859 [pool-10-thread-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2016-05-08 11:28:22,600 [main] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8

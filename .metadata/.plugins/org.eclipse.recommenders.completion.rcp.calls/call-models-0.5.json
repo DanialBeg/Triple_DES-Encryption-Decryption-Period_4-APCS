@@ -2,6 +2,11 @@
   "C:\\Program Files\\Java\\jre7\\lib\\rt.jar": {
     "location": "C:\\Program Files\\Java\\jre7\\lib\\rt.jar",
     "status": "UNRESOLVED",
-    "error": "No class path info available for \u0027C:\\Program Files\\Java\\jre7\\lib\\rt.jar\u0027. Skipped."
+    "error": "Could not transfer artifact jre:jre:zip:call:1.0.0 from/to remote-models (http://download.eclipse.org/recommenders/models/kepler/): GET request of: jre/jre/1.0.0/jre-1.0.0-call.zip from remote-models failed"
+  },
+  "C:\\Users\\BegFamily\\Documents\\GitHub\\Triple_DES-Encryption-Decryption-Period_4-APCS\\Triple_DES-Encryption-Decryption\\src": {
+    "location": "C:\\Users\\BegFamily\\Documents\\GitHub\\Triple_DES-Encryption-Decryption-Period_4-APCS\\Triple_DES-Encryption-Decryption\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\BegFamily\\Documents\\GitHub\\Triple_DES-Encryption-Decryption-Period_4-APCS\\Triple_DES-Encryption-Decryption\\src\u0027. Skipped."
   }
 }

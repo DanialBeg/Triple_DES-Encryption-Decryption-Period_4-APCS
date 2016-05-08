@@ -1,0 +1,133 @@
+/*
+ * Decompiled with CFR 0_114.
+ * 
+ * Could not load the following classes:
+ *  org.bukkit.Bukkit
+ *  org.bukkit.ChatColor
+ *  org.bukkit.command.Command
+ *  org.bukkit.command.CommandSender
+ *  org.bukkit.configuration.file.FileConfiguration
+ *  org.bukkit.entity.Player
+ *  org.bukkit.event.EventHandler
+ *  org.bukkit.event.Listener
+ *  org.bukkit.event.player.AsyncPlayerChatEvent
+ *  org.bukkit.plugin.Plugin
+ *  org.bukkit.plugin.PluginManager
+ *  org.bukkit.plugin.java.JavaPlugin
+ */
+package me.panda.staffchat;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.logging.Logger;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.MemorySection;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class StaffChat
+extends JavaPlugin
+implements Listener {
+    public ArrayList<String> StaffChat = new ArrayList();
+
+    public void onEnable() {
+        Bukkit.getServer().getLogger().info("[StaffChat] By UnsociablePanda has been enabled!");
+        Bukkit.getServer().getPluginManager().registerEvents((Listener)this, (Plugin)this);
+        this.saveDefaultConfig();
+    }
+
+    public void onDisable() {
+        Bukkit.getServer().getLogger().info("[StaffChat] By UnsociablePanda has been disabled!");
+    }
+
+    public boolean isStaffChatting(Player player) {
+        if (this.StaffChat.contains(player.getName())) {
+            return true;
+        }
+        return false;
+    }
+
+    @EventHandler
+    public void onPlayerChat(AsyncPlayerChatEvent event) {
+        Player p = event.getPlayer();
+        String chatprefix = this.getConfig().getString("messages.chatprefix");
+        chatprefix = chatprefix.replaceAll("&", "\u00a7");
+        String name = this.getConfig().getString("messages.name");
+        name = name.replaceAll("&", "\u00a7");
+        String color = this.getConfig().getString("messages.color");
+        color = color.replaceAll("&", "\u00a7");
+        Collection<? extends Player> arrplayer = Bukkit.getServer().getOnlinePlayers();
+        int n = arrplayer.size();
+        int n2 = 0;
+        fot(arrplayer n1 : arrplayer) {
+            Player online = arrplayer.get(n2);
+            if (this.isStaffChatting(p)) {
+                event.setCancelled(true);
+                if (online.hasPermission("staffchat.message") || this.isStaffChatting(online)) {
+                    online.sendMessage(String.valueOf(chatprefix) + " " + name + p.getName() + (Object)ChatColor.AQUA + ":" + color + " " + event.getMessage());
+                }
+            }
+            ++n2;
+        }
+    }
+
+    @SuppressWarnings("deprecation")
+	public boolean onCommand(CommandSender sender, Command cmd, String tag, String[] args) {
+        Player p = (Player)sender;
+        String join = this.getConfig().getString("messages.join");
+        join = join.replaceAll("&", "\u00a7");
+        join = join.replaceAll("%PLAYER%", sender.getName());
+        String leave = this.getConfig().getString("messages.leave");
+        leave = leave.replaceAll("&", "\u00a7");
+        leave = leave.replaceAll("%PLAYER%", sender.getName());
+        String reload = this.getConfig().getString("messages.reload");
+        reload = reload.replaceAll("&", "\u00a7");
+        String prefix = this.getConfig().getString("messages.prefix");
+        prefix = prefix.replaceAll("&", "\u00a7");
+        if (!(sender instanceof Player)) {
+            sender.sendMessage(String.valueOf(prefix) + (Object)ChatColor.DARK_RED + " Only players can execute this command!");
+            return true;
+        }
+        if (cmd.getName().equalsIgnoreCase("StaffChat")) {
+            if (p.hasPermission("StaffChat.use")) {
+                if (args.length == 0) {
+                    if (this.isStaffChatting(p)) {
+                        for (String s : this.StaffChat) {
+                            Bukkit.getPlayerExact((String)s).isOnline();
+                            Bukkit.getPlayer((String)s).sendMessage(String.valueOf(prefix) + " " + leave);
+                        }
+                        this.StaffChat.remove(p.getName());
+                        return true;
+                    }
+                    this.StaffChat.add(p.getName());
+                    for (String s : this.StaffChat) {
+                        Bukkit.getPlayerExact((String)s).isOnline();
+                        Bukkit.getPlayer((String)s).sendMessage(String.valueOf(prefix) + " " + join);
+                    }
+                    return true;
+                }
+                if (args[0].equalsIgnoreCase("reload")) {
+                    if (p.hasPermission("staffchat.reload")) {
+                        this.reloadConfig();
+                        p.sendMessage(String.valueOf(prefix) + " " + reload);
+                    } else {
+                        p.sendMessage((Object)ChatColor.DARK_RED + " You do not have permissions to use this command!");
+                    }
+                }
+            } else {
+                p.sendMessage((Object)ChatColor.DARK_RED + " You do not have permissions to use this command!");
+            }
+        }
+        return true;
+    }
+}
