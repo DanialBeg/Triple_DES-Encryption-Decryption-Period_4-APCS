@@ -9,12 +9,6 @@ import org.apache.commons.codec.binary.Base64;
 
 public class Encryption implements Encryption_Decryption{
 
-	public static void main(String[] args) throws Exception{
-		Encryption_Decryption a = new Encryption();
-		String b = a.encrypt("jarjar", "jarjarissnoke");
-		System.out.println(b);
-	}
-
 	public String encrypt(String text, String key) throws Exception{
 		MessageDigest msg = MessageDigest.getInstance("SHA-1");
 		byte[] psw = msg.digest(key.getBytes("utf-8"));
