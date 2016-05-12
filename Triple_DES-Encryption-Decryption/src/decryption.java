@@ -27,10 +27,4 @@ public class decryption implements Encryption_Decryption {
 		return null;
 	}
 
-	public static void main(String[] args) throws Exception {
-		Encryption_Decryption a = new decryption();
-		String ab = a.decrypt("nkYvPcZZjyeTTj3Kw6+5Pg==", "SecretKey");
-
-		System.out.println(ab);
-	}
 }
