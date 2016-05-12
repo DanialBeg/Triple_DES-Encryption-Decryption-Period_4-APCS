@@ -19,9 +19,9 @@ public class Encryption implements Encryption_Decryption{
 		cipher.init(Cipher.ENCRYPT_MODE, keys);
 		
 		byte[] plainTextBytes = text.getBytes("utf-8");
-	        byte[] buf = cipher.doFinal(plainTextBytes);
-	        byte [] base64Bytes = Base64.encodeBase64(buf);
-	        String string = new String(base64Bytes);
+	        byte[] dec = cipher.doFinal(plainTextBytes);
+	        byte [] bytes = Base64.encodeBase64(buf);
+	        String string = new String(dec);
 	        return string;
 	}
 
