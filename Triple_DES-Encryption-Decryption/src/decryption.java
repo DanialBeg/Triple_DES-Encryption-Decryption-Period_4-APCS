@@ -23,6 +23,7 @@ public class decryption implements Encryption_Decryption {
 
 	}
 
+	@Override
 	public String encrypt(String text, String key) throws Exception {
 		return null;
 	}
